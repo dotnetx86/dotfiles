@@ -1,177 +1,182 @@
-@import "frappe.css";
+@define-color rosewater #f5e0dc;
+@define-color flamingo #f2cdcd;
+@define-color pink #f5c2e7;
+@define-color mauve #cba6f7;
+@define-color red #f38ba8;
+@define-color maroon #eba0ac;
+@define-color peach #fab387;
+@define-color yellow #f9e2af;
+@define-color green #a6e3a1;
+@define-color teal #94e2d5;
+@define-color sky #89dceb;
+@define-color sapphire #74c7ec;
+@define-color blue #89b4fa;
+@define-color lavender #b4befe;
+@define-color text #cdd6f4;
+@define-color subtext1 #bac2de;
+@define-color subtext0 #a6adc8;
+@define-color overlay2 #9399b2;
+@define-color overlay1 #7f849c;
+@define-color overlay0 #6c7086;
+@define-color surface2 #585b70;
+@define-color surface1 #45475a;
+@define-color surface0 #313244;
+@define-color base #1e1e2e;
+@define-color mantle #181825;
+@define-color base-opacity rgba(30, 30, 46, 0.8);
 
+/* Global styles */
 * {
+  font-size: 14;
+  font-weight: bold;
   padding: 0;
   margin: 0;
-  font-family: "JetBrainsMono Nerd Font";
-  font-weight: bold;
-  font-size: 12px;
 }
 
-/* ------ Set a Uniform Border Radius ------ */
-.modules-left,
-.modules-center,
-.modules-right,
+#waybar {
+  border: none;
+  margin-top: 3px;
+  background-color: @base;
+  color: @text;
+  font-family: "JetBrainsMono Nerd Font";
+}
+
+/* Загальні стилі для елементів */
+#custom-icon,
+#workspaces,
+#temperature,
 #cpu,
 #memory,
-#temperature,
-#wireplumber,
-#backlight,
-#custom-spotify,
-#custom-icon,
-#custom-updates,
-#language,
-#network,
 #battery,
-#battery#bat1,
-#tray,
-#idle_inhibitor,
+#backlight,
+#wireplumber,
+#custom-notification,
+#language,
+#clock,
+#network,
 #custom-power,
-#custom-notification {
-  border-radius: 18px;
+#tray {
+  margin: 5px 4px;
+  padding: 0px 5px;
 }
 
-/* ------ Modules Left ------ */
-.modules-left {
-  background-color: @base;
-  padding-right: 10px;
-  padding-left: 17px;
+/* Custom icon (left)*/
+#custom-icon {
+  color: @blue;
+  font-size: 18px;
+  margin-left: 5px;
+  padding: 0px 11px 0px 8px;
 }
 
-/* ------ Modules Center ------ */
-.modules-center {
-  background-color: @base;
-  padding-right: 4px;
-  padding-left: 4px;
-}
-
-/* ------ Modules Right ------ */
-.modules-right {
-  background-color: @base;
-  padding-right: 4px;
-  padding-left: 4px;
-}
-
-/* ------ Window Title ------ */
-#window {
-  color: @text;
-  padding-right: 4px;
-}
-
-window#waybar {
-  background-color: rgba(0, 0, 0, 0);
-  border-bottom: 0px solid #ffffff;
-  /* color: #FFFFFF; */
-  background: transparent;
-  transition-property: background-color;
-  transition-duration: 0.5s;
-}
-
-/* -----------------------------------------------------
- * Workspaces 
- * ----------------------------------------------------- */
-
-#workspaces button.empty {
-  color: @surface2;
-  font-family: JetBrainsMono Nerd Font;
-}
-
+/* Workspaces */
 #workspaces {
-  margin: 0px 1px 0px 1px;
-  padding: 0px 10px;
-  font-family: JetBrainsMono Nerd Font;
+    padding: 0px 8px;
+    background-color: @surface0;
+    border-radius: 12px;
 }
 
 #workspaces button {
-  padding: 0px 3px;
-  margin: 4px 2px;
-  color: @yellow;
-  font-family: JetBrainsMono Nerd Font;
+  color: @overlay0;
+  margin: 0px 2px;
+  padding: 0px 4px;
+  border-radius: 0px;
+  border-bottom: 2px solid transparent;
 }
 
-#workspaces button:hover {
-  opacity: 0.5;
+#workspaces button.active {
+  color: @rosewater;
+  border-bottom: 2px solid @surface2;
 }
 
-/* ------ Backlight ------ */
-#backlight {
-  color: @sky;
-  background-color: @surface1;
-  padding: 2px 8px;
-  margin: 4px 2px;
+#temperature {
+  color: @sapphire;
+  margin-left: 4px;
 }
 
-/* ------ Wireplumber ------ */
-#wireplumber {
+#cpu {
+}
+
+#memory {
   color: @peach;
-  background-color: @surface1;
-  padding: 2px 8px;
-  margin: 4px 2px;
 }
 
-/* ------ Language ------ */
 #language {
-  color: @flamingo;
-  background-color: @surface1;
-  padding: 2px 8px;
-  margin: 4px 2px;
+  color: #ffffff;
 }
 
-/* ------ Network ------ */
 #network {
-  color: @mauve;
-  background-color: @surface1;
-  padding: 2px 8px;
-  margin: 4px 2px;
-}
-
-/* ------ Battery ------ */
-#battery {
-  color: @maroon;
-  background-color: @surface1;
-  padding: 2px 8px;
-  margin: 4px 2px;
-}
-
-/* ------ Clock ------ */
-#clock {
-  padding-left: 10px;
-  color: @text;
-  font-weight: bold;
-  font-size: 13px;
-}
-
-/* ------ System Tray ------ */
-#tray {
-  background-color: @surface1;
-  padding: 2px 8px;
-  margin: 4px 2px;
-}
-
-/* ------ Custom Modules ------ */
-#custom-icon {
-  font-size: 18px;
   color: @blue;
-  padding-right: 5px;
 }
 
+#network.wifi {
+  color: @sky;
+}
+
+#network.ethernet {
+  color: @blue;
+}
+
+#network.disconnected {
+  color: @maroon;
+}
+
+#network.disabled {
+  color: @surface0;
+}
+
+/* Power */
 #custom-power {
   color: @red;
-  background-color: @surface1;
-  padding: 2px 9px;
-  margin: 4px 2px;
-  font-size: 15px;
+  padding: 0px 3px 0px 7px;
 }
 
-#idle_inhibitor {
-  color: @green;
+/* Tray */
+
+
+/* Clock & Window */
+#clock {
+  color: @overlay0;
+  background-color: @surface0;
+  padding: 0px 10px;
+  border-radius: 12px;
+}
+
+#clock:hover {
   background-color: @surface1;
-  padding: 2px 9px;
-  margin: 4px 2px;
-  font-size: 15px;
+}
+
+/* Backlight */
+#backlight {
+}
+
+#custom-notification {
+  padding: 0px 3px 0px 7px;
+}
+
+/* Hover-ефекти */
+#custom-icon:hover,
+#temperature:hover,
+#cpu:hover,
+#memory:hover,
+#battery:hover,
+#backlight:hover,
+#wireplumber:hover,
+#custom-notification:hover,
+#language:hover,
+#network:hover,
+#custom-power:hover,
+#tray:hover {
+  background: @surface0;
+  border-radius: 12px;
 }
 
 tooltip {
-  background: @base;
-  border: 1px solid @blue;
+  background-color: @base-opacity;
+  /* Catppuccin Mocha: base */
+  color: @text;
+  /* Catppuccin Mocha: text */
+  border: 2px solid @lavender;
+  font-size: 13px;
+  padding: 10px;
+  border-radius: 0px;
 }

@@ -1,0 +1,17 @@
+{
+	"program_options": {
+		"tray": true
+	},
+
+	"device_config": [
+	    {
+	      "id_uuid": "96BA866ABA8646A9",
+	      "options": [
+		"noexec",
+		"nodev"
+	      ],
+	      "ignore": false,
+	      "automount": true
+		}
+	]
+}

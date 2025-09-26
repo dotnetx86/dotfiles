@@ -20,12 +20,12 @@
   "modules-right": [
     "backlight",
     "wireplumber",
+    "wireplumber#source",
     "hyprland/language",
     "network",
     "battery",
     "tray",
-    "idle_inhibitor"
-//    "custom/power",
+    "custom/power",
   ],
 
   "hyprland/language": {
@@ -39,8 +39,9 @@
   },
 
   "clock": {
-		"format": "<b>󰥔  {:%H:%M   󰃭  %d.%m}</b> ",
+		"format": "<b>󰥔  {:%H:%M:%S   󰃭  %d.%m}</b> ",
 		//"format": "{:%a}",
+		"interval": 1,
 		"tooltip-format": "<tt>{calendar}</tt>",
         "calendar": {
                     "mode"          : "month",
@@ -74,7 +75,7 @@
         "default": ""
       },
       "persistent-workspaces": {
-          "*": 3 
+          "*": [1, 2, 3] 
       }       
   },
   
@@ -93,8 +94,18 @@
       "headset": "",
       "default": ["󰕿", "󰖀", "󰕾"],
     },
-    "tooltip": false,
+    //"tooltip": false,
+    "scroll-step": 5,
     "on-click": "pavucontrol",
+    "on-click-right": "wpctl set-mute @DEFAULT_AUDIO_SINK@ toggle",
+  },
+
+  "wireplumber#source": {
+      "node-type": "Audio/Source",
+      "format": "󰍬 {volume}%",
+      "format-muted": "󰍭",
+      "on-click-right": "wpctl set-mute @DEFAULT_AUDIO_SOURCE@ toggle",
+      "scroll-step": 5,
   },
 
   "network": {
@@ -121,14 +132,6 @@
   "tray": {
     "icon-size": 16,
     "spacing": 15,
-  },
-
-   "idle_inhibitor": {
-    "format": "{icon}",
-    "format-icons": {
-        "activated": "󰈈 ",
-        "deactivated": "󰈉 "
-    },
   },
 
   "custom/power": {

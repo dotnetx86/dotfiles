@@ -1,0 +1,14 @@
+[general]
+import = [
+    "~/.config/alacritty/themes/themes/duskfox.toml"
+]
+
+[font]
+normal = { family = "JetBrainsMono NF SemiBold", style = "Regular" }
+
+bold = { family = "JetBrainsMono NF ExtraBold", style = "ExtraBold" }
+
+[cursor]
+style = { shape = "Beam", blinking = "On"}
+vi_mode_style = { shape = "Block", blinking = "Never" }
+thickness = 0.25 
