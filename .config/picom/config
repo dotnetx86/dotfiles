@@ -1,0 +1,68 @@
+# =================================================
+# General / Backend (important for blur)
+# =================================================
+backend = "glx";          # or "xrender" — glx usually performs better with blur
+vsync = true;
+
+# If using a fork or recent picom with experimental backends support:
+# Run picom with:   picom --experimental-backends -b
+# (or add --experimental-backends to your autostart command)
+
+# =================================================
+# Disable ALL animations & fading
+# =================================================
+fading = false;                 # kills fade in/out
+fade-in-step = 0.03;            # irrelevant but can be left
+fade-out-step = 0.03;
+fade-delta = 10;
+no-fading-openclose = true;     # very important — disables open/close fade
+no-fading-destroy = true;
+
+# If using a fork with the newer animations engine (jonaburg, ftlabs, etc.):
+animations = false;             # master switch — set this if it exists
+
+# =================================================
+# Opacity (85% = 0.85)
+# =================================================
+
+# Option A: Make ALL inactive windows 85% opaque (most common choice)
+inactive-opacity = 0.85;
+active-opacity   = 0.95;         # focused windows fully opaque
+
+# Option B: More selective — only certain apps (recommended if you want blur only on terminals/rofi/etc.)
+# opacity-rule = [
+#   "85:class_g = 'Alacritty'",          # example: terminal 85%
+#   "90:class_g = 'kitty'",
+#   "85:class_g = 'Rofi'",               # menus / launchers
+#   "100:_NET_WM_STATE@:32a *= '_NET_WM_STATE_HIDDEN'"   # optional: don't affect minimized
+# ];
+
+# =================================================
+# Blur (requires semi-transparent windows!)
+# =================================================
+
+blur: {
+    method = "dual_kawase";     # best quality/performance balance in 2024–2026
+    #method = "gaussian";       # alternative — usually slower
+    #method = "box";            # fastest but ugly
+    strength = 3;
+    size = 3;                  # blur radius (higher = more blur, more GPU use)
+    deviation = 5.0;            # only for gaussian
+
+    # or for dual_kawase you can use strength instead (some forks)
+    # strength = 5..8;          # 5–12 range, higher = heavier blur
+
+    background = true;          # main switch — blur behind transparent windows
+    background-frame = false;   # usually leave false
+    background-fixed = false;   # usually leave false
+}
+
+# Optional: exclude some windows from blur (very common)
+blur-background-exclude = [
+    "window_type = 'dock'",
+    "window_type = 'desktop'",
+    "class_g = 'firefox' && argb",   # example
+    "class_g = 'Rofi' && focused",   # don't blur focused rofi if you want    
+];
+
+
